@@ -26,7 +26,9 @@ class PancakeHouseMenu {
 		menuItems.add(menuItem);
 	}
 
-  public List<MenuItem> getMenuItems() { return menuItems; }
+  public Iterator<MenuItem> createIterator() {
+    return new PancakeHouseMenuIterator(menuItems);
+  }
 }
 
 public class DinerMenu {
@@ -54,26 +56,8 @@ public class DinerMenu {
 		}
 	}
  
-	public MenuItem[] getMenuItems() { return menuItems; }
-  public int getNumItems() { return numberOfItems; }
-}
-
-class Waitress {
-  PancakeHouseMenu phm = new PancakeHouseMenu();
-  DinerMenu dm = new DinerMenu();
-
-  List<MenuItem> breakfastItems = phm.getMenuItems();
-  MenuItem[] lunchItems = dm.getMenuItems();
-  int len = dm.getNumItems();
-
-  public void printMenu() {
-    // print all breakfastItems
-    for (int i = 0; i < breakfastItems.size(); i++) {
-      System.out.println(breakfastItems.get(i));
-    }
-    // print all lunchItems
-    for (int i = 0; i < len; i++) {
-      System.out.println(lunchItems[i]);
-    }
+  public Iterator<MenuItem> createIterator() {
+    return new DinerMenuIterator(menuItems);
   }
 }
+
