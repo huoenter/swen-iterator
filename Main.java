@@ -7,7 +7,7 @@ class MenuItem {
   public String toString() { return name + " " + price + "\n" + desc + "\n"; }
 }
 
-class PancakeHouseMenu {
+class PancakeHouseMenu implements Iterable<MenuItem> {
   List<MenuItem> menuItems;
   public PancakeHouseMenu() {
     menuItems = new ArrayList<>();
@@ -26,12 +26,12 @@ class PancakeHouseMenu {
 		menuItems.add(menuItem);
 	}
 
-  public Iterator<MenuItem> createIterator() {
+  public Iterator<MenuItem> iterator() {
     return new PancakeHouseMenuIterator(menuItems);
   }
 }
 
-public class DinerMenu {
+public class DinerMenu implements Iterable<MenuItem> {
 	static final int MAX_ITEMS = 16;
 	int numberOfItems = 0;
 	MenuItem[] menuItems;
@@ -56,7 +56,7 @@ public class DinerMenu {
 		}
 	}
  
-  public Iterator<MenuItem> createIterator() {
+  public Iterator<MenuItem> iterator() {
     return new DinerMenuIterator(menuItems);
   }
 }

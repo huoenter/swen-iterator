@@ -1,8 +1,3 @@
-interface Iterator<A> {
-  public A next();
-  public boolean hasNext();
-}
-
 class DinerMenuIterator implements Iterator<MenuItem> {
   MenuItem[] items; int position = 0;
   DinerMenuIterator(MenuItem[] a) { items = a; }
